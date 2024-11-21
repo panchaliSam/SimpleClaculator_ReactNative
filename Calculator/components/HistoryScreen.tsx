@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native';
 
 const HistoryScreen: React.FC<{ route: any; navigation: any }> = ({ route, navigation }) => {
-  const { history, clearHistory } = route.params; 
+  const { history, clearHistory } = route.params;
 
   const handleClearHistory = () => {
     Alert.alert(
@@ -10,7 +10,7 @@ const HistoryScreen: React.FC<{ route: any; navigation: any }> = ({ route, navig
       'Are you sure you want to clear all history?',
       [
         { text: 'Cancel', style: 'cancel' },
-        { text: 'OK', onPress: clearHistory }, 
+        { text: 'OK', onPress: clearHistory },
       ]
     );
   };

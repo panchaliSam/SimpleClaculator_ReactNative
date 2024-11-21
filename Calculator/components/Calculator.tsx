@@ -8,11 +8,11 @@ import { create, all } from 'mathjs';
 const math = create(all);
 
 interface CalculatorProps {
-  navigation: any; 
+  navigation: any;
 }
 
 const Calculator: React.FC<CalculatorProps> = ({ navigation }) => {
-  const [input, setInput] = useState<string>(''); 
+  const [input, setInput] = useState<string>('');
   const [result, setResult] = useState<string | null>(null);
   const [history, setHistory] = useState<string[]>([]);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
@@ -26,7 +26,7 @@ const Calculator: React.FC<CalculatorProps> = ({ navigation }) => {
           setHistory(JSON.parse(storedHistory));
         }
       } catch (error) {
-        console.error('Failed to load history:', error);
+        //console.error('Failed to load history:', error);
       }
     };
 
@@ -40,7 +40,7 @@ const Calculator: React.FC<CalculatorProps> = ({ navigation }) => {
     }
     setInput((prevInput) => prevInput + value);
   };
-  
+
 
   const handleClear = () => {
     setInput('');
@@ -51,27 +51,27 @@ const Calculator: React.FC<CalculatorProps> = ({ navigation }) => {
     try {
       // Validation: Prevent multiple consecutive operators
       if (/[\+\-\*\/]{2,}/.test(input)) {
-        setResult('Syntax Error'); 
+        setResult('Syntax Error');
         return;
       }
-  
+
       // Validation: Prevent division by zero
       if (/\/0(?!\d)/.test(input)) {
         setResult('Error: Division by Zero');
         return;
       }
-  
+
       // Validate input syntax using math.js
       const calculatedResult = math.evaluate(input);
       setResult(calculatedResult.toString());
-  
+
       const newHistory = [...history, `${input} = ${calculatedResult}`];
       setHistory(newHistory);
       await AsyncStorage.setItem('calculationHistory', JSON.stringify(newHistory));
     } catch (error) {
-      setResult('Syntax Error'); 
+      setResult('Syntax Error');
     }
-  };  
+  };
 
   const handleBackspace = () => {
     setInput((prevInput) => prevInput.slice(0, -1));
@@ -81,11 +81,11 @@ const Calculator: React.FC<CalculatorProps> = ({ navigation }) => {
     navigation.navigate('History', {
       history,
       clearHistory: async () => {
-        setHistory([]); 
-        await AsyncStorage.removeItem('calculationHistory'); 
+        setHistory([]);
+        await AsyncStorage.removeItem('calculationHistory');
       },
     });
-  };  
+  };
 
   const toggleDarkMode = () => {
     setIsDarkMode((prev) => !prev);
