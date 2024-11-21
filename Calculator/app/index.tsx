@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, StatusBar, SafeAreaView, Platform } from 'react-native'; 
+import { StyleSheet, StatusBar, SafeAreaView, Platform } from 'react-native';
 import { registerRootComponent } from 'expo';
-import AppNavigator from '@/components/navigation/AppNavigator'; 
+import AppNavigator from '../components/navigation/AppNavigator';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -14,7 +14,7 @@ const App: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <StatusBar
         barStyle="light-content" // Set desired style
-        backgroundColor={Platform.OS === 'ios' ? 'transparent' : '#1E1E1E'} 
+        backgroundColor={Platform.OS === 'ios' ? 'transparent' : '#1E1E1E'}
       />
       <AppNavigator />
     </SafeAreaView>
@@ -23,8 +23,8 @@ const App: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
-    backgroundColor: '#fff', 
+    flex: 1,
+    backgroundColor: '#fff',
   },
 });
 

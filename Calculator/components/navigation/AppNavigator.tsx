@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Calculator from '@/components/Calculator';
-import HistoryScreen from '@/components/HistoryScreen';
+import Calculator from '../Calculator';
+import HistoryScreen from '../HistoryScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,8 +13,8 @@ const AppNavigator: React.FC = () => {
         <Stack.Screen
           name="Calculator"
           component={Calculator}
-          options={{ 
-            headerShown: false 
+          options={{
+            headerShown: false
           }}
         />
         <Stack.Screen

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "HackHeaven_APP",
-    "slug": "HackHeaven_APP",
+    "name": "Calculator",
+    "slug": "Calculator",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/logos/logo.png",
@@ -13,28 +13,25 @@
       "backgroundColor": "#1E1E1E"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "lk.panchali.calculator"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/logos/logo.png",
         "backgroundColor": "#1E1E1E"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "lk.panchali.calculator"
     },
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/logos/logo.png"
     },
-    "plugins": [
-      "expo-router",
-      [
-        "expo-image-picker",
-        {
-          "photosPermission": "The app accesses your photos to let you share them with your friends."
-        }
-      ]
-    ],
+    "plugins": [],
     "experiments": {
       "typedRoutes": true
     }
