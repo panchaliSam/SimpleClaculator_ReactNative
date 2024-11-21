@@ -11,13 +11,13 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <>
       <StatusBar
         barStyle="light-content" // Set desired style
         backgroundColor={Platform.OS === 'ios' ? 'transparent' : '#1E1E1E'}
       />
       <AppNavigator />
-    </SafeAreaView>
+    </>
   );
 };
 
